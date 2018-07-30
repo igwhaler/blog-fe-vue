@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import ArtItem from '../ArtItem'
+import ArtItem from '../../ArtItem'
 
 export default {
   name: 'HomePage',

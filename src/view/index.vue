@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import IgwHeader from '../view/IgwHeader'
+import IgwHeader from '@/components/IgwHeader'
 
 export default {
   name: 'Index',
