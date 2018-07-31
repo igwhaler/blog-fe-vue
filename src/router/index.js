@@ -26,6 +26,10 @@ export default new Router({
       ]
     },
     {
+      path: '/vuex',
+      component: () => import('@/view/VuexExample/other.vue')
+    },
+    {
       path: '*',
       redirect: '/'
     }
