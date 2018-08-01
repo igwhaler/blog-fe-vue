@@ -64,7 +64,6 @@ export default {
           color: #4c4c4c;
         }
         p {
-          margin-top: 4px;
           font-size: 12px;
           color: #9d9d9d;
           line-height: 1.5em;

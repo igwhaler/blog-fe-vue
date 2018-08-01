@@ -56,7 +56,8 @@ export default {
 <style lang="less" scoped>
 .article {
   padding: 25px 30px;
-  background: #fff;
+  background: #fdfdfd;
+  // box-shadow: 0 0 10px 3px #606470;
   .article-date {
     float: left;
     .date {
@@ -68,25 +69,25 @@ export default {
       } */
     }
     .day {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       border: 5px solid #828d95;
-      line-height: 70px;
+      line-height: 60px;
       text-align: center;
       color: #828d95;
-      font-size: 40px;
+      font-size: 34px;
       border-radius: 50%;
     }
     .month,
     .year {
       text-align: center;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.5em;
       color: #c0c0c0;
     }
   }
   .article-main {
-    margin-left: 105px;
+    margin-left: 95px;
     .content {
       h2 {
         font-weight: normal;
@@ -106,7 +107,7 @@ export default {
         line-height: 1.5em;
       }
       .g-cover {
-        margin: 20px 0;
+        margin: 10px 0 20px;
         overflow: hidden;
         &:hover {
           img {
