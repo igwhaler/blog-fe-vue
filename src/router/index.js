@@ -26,8 +26,19 @@ export default new Router({
       ]
     },
     {
-      path: '/vuex',
-      component: () => import('@/view/VuexExample/other.vue')
+      path: '/others',
+      redirect: '/others/vuex',
+      component: () => import('@/others'),
+      children: [
+        {
+          path: 'vuex',
+          component: () => import('@/others/VuexExample/other.vue')
+        },
+        {
+          path: 'mathjs',
+          component: () => import('@/others/MathJs')
+        }
+      ]
     },
     {
       path: '*',
