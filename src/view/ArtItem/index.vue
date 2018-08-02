@@ -11,8 +11,10 @@
             <router-link :to="`/article?id=${article.id}`">{{article.title}}</router-link>
           </h2>
           <p>{{article.summary}}</p>
-          <div class="g-cover">
-            <img v-if="article.cover" :src="article.cover" :alt="article.title">
+          <div v-if="article.cover" class="g-cover">
+            <router-link :to="`/article?id=${article.id}`">
+              <img :src="article.cover" :alt="article.title">
+            </router-link>
           </div>
         </div>
         <div class="more">

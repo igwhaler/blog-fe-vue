@@ -49,8 +49,8 @@ module.exports = {
     // Paths
     // assetsRoot: path.resolve(__dirname, '../dist'),
 
-    index: path.resolve(__dirname, '../../blog/dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../../blog/dist'),
+    index: path.resolve(__dirname, '../../blog/dist/vue/index.html'),
+    assetsRoot: path.resolve(__dirname, '../../blog/dist/vue'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
