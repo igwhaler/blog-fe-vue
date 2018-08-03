@@ -37,6 +37,10 @@ export default new Router({
         {
           path: 'mathjs',
           component: () => import('@/others/MathJs')
+        },
+        {
+          path: 'echarts',
+          component: () => import('@/others/MyEcharts')
         }
       ]
     },
