@@ -3,7 +3,10 @@
     <div class="g-comment-list">
       <ul>
         <li v-for="(comment, index) in commentList" class="comment" :key="index">
-          <div class="name">{{comment.name}}</div>
+          <div class="name">
+            <img src="../../../../assets/images/header.png">
+            <span>{{comment.name}}</span>
+          </div>
           <div class="time">{{comment.created | getCommentTime}}</div>
           <p class="content">{{comment.content}}</p>
         </li>
@@ -50,6 +53,12 @@ export {default} from './js/index.js'
       .name {
         margin-bottom: 4px;
         font-size: 18px;
+        overflow: hidden;
+        img {
+          float: left;
+          margin-right: 2px;
+          width: 24px;
+        }
       }
       .time {
         margin-bottom: 10px;
