@@ -71,8 +71,8 @@ export default {
       } */
     }
     .day {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border: 5px solid #828d95;
       line-height: 60px;
       text-align: center;

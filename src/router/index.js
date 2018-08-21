@@ -25,7 +25,7 @@ export default new Router({
         }
       ]
     },
-    {
+    /* {
       path: '/others',
       redirect: '/others/vuex',
       component: () => import('@/others'),
@@ -39,7 +39,7 @@ export default new Router({
           component: () => import('@/others/MathJs')
         }
       ]
-    },
+    }, */
     {
       path: '*',
       redirect: '/'

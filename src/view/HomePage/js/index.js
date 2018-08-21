@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import ArtItem from '../../ArtItem'
+import ArtItem from '../components/ArtItem'
 
 export default {
   name: 'HomePage',
@@ -24,7 +24,7 @@ export default {
       this.graphqlArticleList()
     },
     // restful获取文章列表
-    getArticleList () {
+    /* getArticleList () {
       Axios.get('/api/article/list').then(res => {
         if (res) {
           this.articleList = res.list || []
@@ -32,7 +32,7 @@ export default {
       }).catch(err => {
         console.log(err)
       })
-    },
+    }, */
 
     // graphql获取文章列表
     graphqlArticleList () {

@@ -1,14 +1,22 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="id && !isError" class="art-detail">
-        <div v-html="detail"></div>
-      </div>
+      <div v-if="!isLoading">
+        <template v-if="id && !isError">
+          <div class="art-detail">
+            <div v-html="detail"></div>
+          </div>
 
-      <div v-if="isError" class="art-detail">
-        <p class="none-data">
-          <img src="../../assets/images/error.jpg" alt="Error">
-        </p>
+          <div class="g-user-comment">
+            <UserComment :commentList="commentList" :articleId="id"/>
+          </div>
+        </template>
+
+        <div v-if="isError" class="art-detail">
+          <p class="none-data">
+            <img src="../../assets/images/error.jpg" alt="Error">
+          </p>
+        </div>
       </div>
     </transition>
   </div>
@@ -16,16 +24,24 @@
 
 <script>
 import Axios from 'axios'
+import UserComment from './components/UserComment'
 
 export default {
   name: 'ArtDetail',
 
+  components: {
+    UserComment
+  },
+
   data () {
     return {
-      id: '',
+      isLoading: true,
+      id: 0,
       isError: false,
 
-      detail: ''
+      detail: '',
+
+      commentList: []
     }
   },
 
@@ -37,9 +53,9 @@ export default {
     getId () {
       this.$nextTick(() => {
         let {id} = this.$route.query
-        if (id) {
-          this.id = id
-          this.getArtDetai(id)
+        if (+id) {
+          this.id = +id
+          this.getArtDetai(+id)
         } else {
           this.isError = true
         }
@@ -47,8 +63,18 @@ export default {
     },
 
     getArtDetai (id) {
-      Axios.get(`/api/graphql?query={artDetail(id: ${id}){detail}}`).then(res => {
-        let {artDetail} = res
+      Axios.get(`/api/graphql`, {
+        params: {
+          query: `{
+            artDetail(id: ${id}){detail},
+            artComments(article_id: ${id}){list{id,content,name,created}}
+          }`
+        }
+      }).then(res => {
+        let {artDetail, artComments} = res
+
+        this.commentList = artComments.list
+
         if (artDetail) {
           this.detail = artDetail.detail.replace(/[\r\n]/g, '')
         } else {
@@ -57,6 +83,8 @@ export default {
       }).catch(err => {
         this.isError = true
         console.log(err)
+      }).finally(res => {
+        this.isLoading = false
       })
     }
   }
@@ -75,5 +103,11 @@ export default {
       width: 100%;
     }
   }
+}
+
+.g-user-comment {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background-color: #fff;
 }
 </style>
