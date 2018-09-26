@@ -1,10 +1,6 @@
 <template>
   <div>
-    <transition name="fade">
-      <div v-if="showState">
-        <IgwHeader />
-      </div>
-    </transition>
+    <IgwHeader class="animated zoomInDown"/>
 
     <router-view></router-view>
   </div>
