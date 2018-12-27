@@ -39,7 +39,7 @@
 </template>
 
 <script>
-export {default} from './js/index.js'
+export { default } from './js/index.js'
 </script>
 
 <style lang="less">
@@ -108,8 +108,9 @@ export {default} from './js/index.js'
         color: #666;
       }
       input {
+        box-sizing: border-box;
         padding: 0 6px;
-        width: 300px;
+        width: 100%;
         line-height: 32px;
         font-size: 16px;
       }
@@ -140,6 +141,18 @@ export {default} from './js/index.js'
     }
     .g-success {
       color: green;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .user-comment {
+    .g-comment {
+      .g-input {
+        input {
+          width: 300px;
+        }
+      }
     }
   }
 }

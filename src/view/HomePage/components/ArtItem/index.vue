@@ -1,10 +1,10 @@
 <template>
   <div class="art-item">
     <div class="article clearfix">
-      <div class="article-date">
+      <!-- <div class="article-date">
         <span class="date day" href="javascript:;">{{article.created | getDate}}</span>
         <span class="date month" href="javascript:;">{{article.created | getYear}}-{{article.created | getMonth}}</span>
-      </div>
+      </div> -->
       <div class="article-main">
         <div class="content">
           <h2>
@@ -18,6 +18,7 @@
           </div>
         </div>
         <div class="more">
+          <span class="time">{{article.created | getDateTime}}</span>
           <router-link :to="`/article?id=${article.id}`">更多>>></router-link>
         </div>
       </div>
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+import DateFormat from 'dateformat'
+
 export default {
   name: 'ArtItem',
   props: {
@@ -50,6 +53,10 @@ export default {
 
     getYear (time) {
       return (new Date(time)).getFullYear()
+    },
+
+    getDateTime (time) {
+      return DateFormat(time, 'yyyy-mm-dd HH:MM:ss')
     }
   }
 }
@@ -57,7 +64,7 @@ export default {
 
 <style lang="less" scoped>
 .article {
-  padding: 25px 30px;
+  padding: 16px;
   background: #fdfdfd;
   // box-shadow: 0 0 10px 3px #606470;
   .article-date {
@@ -89,12 +96,12 @@ export default {
     }
   }
   .article-main {
-    margin-left: 95px;
+    // margin-left: 95px;
     .content {
       h2 {
         font-weight: normal;
         a {
-          font-size: 20px;
+          font-size: 16px;
           color: #4c4c4c;
           line-height: 1.5em;
           transition: 0.3s;
@@ -109,7 +116,7 @@ export default {
         line-height: 1.5em;
       }
       .g-cover {
-        margin: 10px 0 20px;
+        margin: 10px 0 10px;
         overflow: hidden;
         &:hover {
           img {
@@ -124,13 +131,36 @@ export default {
     }
     .more {
       overflow: hidden;
+      .time {
+        float: left;
+        color: #828d95;
+        font-size: 14px;
+      }
       a {
         float: right;
-        font-size: 16px;
+        font-size: 14px;
         color: #828d95;
         transition: 0.3s;
         &:hover {
           color: #4d4d4d;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .article {
+    padding: 20px 30px 20px 34px;
+    .article-main {
+      .content {
+        h2 {
+          a {
+            font-size: 20px;
+          }
+        }
+        .g-cover {
+          margin: 10px 0 20px;
         }
       }
     }

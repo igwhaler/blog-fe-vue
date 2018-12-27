@@ -94,8 +94,8 @@ export default {
 <style lang="less">
 .art-detail {
   @import '../../assets/md/style/marxico.less';
-  margin-bottom: 30px;
-  padding: 10px 20px;
+  margin-bottom: 20px;
+  padding: 10px 4px;
   background-color: #fff;
   .none-data {
     text-align: center;
@@ -106,8 +106,18 @@ export default {
 }
 
 .g-user-comment {
-  margin-bottom: 30px;
-  padding: 10px 20px;
+  margin-bottom: 0;
+  padding: 10px 16px;
   background-color: #fff;
+}
+
+@media screen and (min-width: 800px) {
+  .art-detail {
+    padding: 10px 20px;
+  }
+  .g-user-comment {
+    margin-bottom: 30px;
+    padding: 10px 20px;
+  }
 }
 </style>
